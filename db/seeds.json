@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Movie #1",
+        "genre": "Action",
+        "comment":"This was a great film",
+        "date": "1/24/2020",
+        "rank": 4
+    },
+    {
+        "name": "Movie #2",
+        "genre": "Adventure",
+        "comment":"This was a film for the ages",
+        "date": "2/8/10",
+        "rank": 8
+    },
+    {
+        "name": "Movie #3",
+        "genre": "Horror",
+        "comment":"This was a horrible scary movie.",
+        "date": "6/18/14",
+        "rank": 3
+    },
+    {
+        "name": "Movie #4",
+        "genre": "Sci-Fi",
+        "comment":"This was the best movie all year.",
+        "date": "August 19, 1975",
+        "rank": 9
+    }
+]
