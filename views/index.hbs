@@ -1,0 +1,35 @@
+{{!-- <link rel="stylesheet" href="../css/style.css"> --}}
+{{!-- css styling --}}
+<style>
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    #new-movie {
+        display: flex;
+        justify-content: flex-end;
+        color: red;
+    }
+
+    #all-movies {
+        border: solid ;
+    }
+</style>
+
+{{!-- Page header --}}
+<div>
+    <h1>Your Movie Collection</h1>
+</div>
+
+{{!-- Add a new movie --}}
+<div id="new-movie">
+    <button>Add New Movie</button>
+</div>
+
+{{!-- List of all movies --}}
+{{#each movie}}
+<div id="all-movies">
+    Movie Name: {{this.name}}
+</div>
+{{/each}}

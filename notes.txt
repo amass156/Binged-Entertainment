@@ -1,0 +1,111 @@
+------------------- User Stories -----------------
+[] A user should be able to see complete list by category (ranking, genre, date, alphabetical order)
+[] A user should be able to add a new movie/show
+[] A user should be able to delete a movie/show
+[] A user should be able to update/edit a movie/show
+[] A user should be able to update info
+[x] A user should be able to rate the item on a scale of 1-10
+[x] A user should be able to add a genre.
+[x] A user should be able to give a brief description about what they thought (a comment)
+
+ -- -- -- -- -- -- -- Home Route - All movies displayed at once -- -- -- -- -- --
+
+    [] (Binged Entertainment) Header
+
+    [x] Page title
+
+    [] Add New movie button
+        [] click leads to new route
+
+    [] List of Movies
+        [x] Title
+        [] Genre 
+            [] shows first 2 genres
+        [] Picture
+        [] Rank 
+        [] view more button
+            [] click leads to show route
+    
+    [] You have watched X amount of Movies
+
+-- -- -- -- -- -- -- Show Route - One movie displayed in full detail -- -- -- -- -- --
+
+    [] (Binged Entertainment) Header
+
+    [] Page title
+
+    [] Delete button
+        [] successfully deletes one intended movie
+
+    [] Genre - shows full genre
+
+    [] Date
+        [] Only shows month/day/year
+
+    [] Picture
+
+    [] Rank
+
+    [] Comments
+
+    [] Return to movie collection button 
+        [] onclick goes back to home route
+    
+    [] Edit button
+        [] Onclick goes to edit route
+
+-- -- -- -- -- -- -- Create Route - Creates a new movie -- -- -- -- -- --
+
+    [] (Binged Entertainment) Header
+
+    [] Page title
+
+    [] Name
+        [] lightly shaded text that previews what to input
+    
+    [] Genre
+        [] lightly shaded text that previews what to input
+    
+    [] Date
+        [] lightly shaded text that previews what to input
+
+    [] Rank
+        [] lightly shaded text that previews what to input
+
+    [] Comments
+        [] lightly shaded text that previews what to input
+
+    [] Submit button
+        [] Onlick runs a post to home route, and goes back home
+    
+    [] Cancel button
+        [] Onlick goes back home
+
+-- -- -- -- -- -- -- -- -- Edit Route -- -- -- -- -- -- -- -- --
+
+    [] (Binged Entertainment) Header
+
+    [] Page title
+
+    [] Name
+        [] lightly shaded text that previews current information
+    
+    [] Genre
+        [] lightly shaded text that previews current information
+    
+    [] Date
+        [] lightly shaded text that previews current information
+
+    [] Rank
+        [] lightly shaded text that previews current information
+
+    [] Comments
+        [] lightly shaded text that previews current information
+
+    [] Submit button
+        [] Onlick runs a post to home route, and goes back to show route
+    
+    [] Cancel button
+        [] Onlick goes back to show route
+
+    

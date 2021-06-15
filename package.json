@@ -1,13 +1,7 @@
 {
-  "dependencies": {
-    "express": "^4.17.1",
-    "hbs": "^4.1.2",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.12.13"
-  },
-  "name": "Binged-Entertainment",
-  "description": "",
+  "name": "binged-entertainment",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +17,10 @@
     "url": "https://github.com/amass156/Binged-Entertainment/issues"
   },
   "homepage": "https://github.com/amass156/Binged-Entertainment#readme",
-  "devDependencies": {}
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.13"
+  }
 }

@@ -14,8 +14,8 @@ const Movie = require("./models/movie")
 // routes
 app.get("/", (req, res) => {
     Movie.find({})
-    .then(movies => {
-        res.json(movies)
+    .then(movie => {
+        res.render("index", {movie})
     })
 })
 
