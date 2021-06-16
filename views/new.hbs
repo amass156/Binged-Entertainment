@@ -1,0 +1,29 @@
+<style>
+    .questions {
+        display: flex;
+        flex-direction: column ;
+    }
+</style>
+<h1>Add a new Movie</h1>
+<form action="/movies" method="POST">
+    <div class="questions">
+        <label for="name">Name:</label>
+        <input type="text" name="name"/>
+    
+        <label for="genre">Genre:</label>
+        <input type="text"  name="genre">
+
+        <label for="date">Date Watched:</label>
+        <input type="date" name="date">
+
+        <label for="rank"> Rank:</label>
+        <input type="number" name="rank">
+
+        <label for="comments"> Comments</label>
+        <input type="text" name="comment">
+
+        <input type="submit">
+  </div>
+
+  {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
+</form>

@@ -1,7 +1,9 @@
 const mongoose = require("../db/connection")
 
 const UserSchema = new mongoose.Schema({
-    name: String
+    name: String,
+    username: {type: String, required: true},
+    password: {type: String, required: true}
 })
 
 // instantiate the Movie model

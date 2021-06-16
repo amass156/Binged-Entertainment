@@ -24,12 +24,19 @@
 
 {{!-- Add a new movie --}}
 <div id="new-movie">
-    <button>Add New Movie</button>
+    <button>
+         <a href="/movies/new"> Add New Movie</a>
+    </button>
 </div>
 
 {{!-- List of all movies --}}
 {{#each movie}}
 <div id="all-movies">
     Movie Name: {{this.name}}
+
+    <div>
+        <a href="/movies/{{this.id}}">More details</a>
+    </div>
+
 </div>
 {{/each}}

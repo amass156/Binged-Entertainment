@@ -1,11 +1,11 @@
 const mongoose = require("../db/connection")
 
 const MovieSchema = new mongoose.Schema({
-    name: String,
+    name: {type: String, required: true},
     genre: String,
     comment: String,
     date: Date,
-    rank: {type: Number, max: 10}
+    rank: {type: Number, required:true, max: 10}
 })
 
 // instantiate the Movie model

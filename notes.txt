@@ -8,14 +8,17 @@
 [x] A user should be able to add a genre.
 [x] A user should be able to give a brief description about what they thought (a comment)
 
+
+*** [] Have a modal show up giving a brief description of how to use the app ***
+
  -- -- -- -- -- -- -- Home Route - All movies displayed at once -- -- -- -- -- --
 
     [] (Binged Entertainment) Header
 
     [x] Page title
 
-    [] Add New movie button
-        [] click leads to new route
+    [x] Add New movie button
+        [x] click leads to new route
 
     [] List of Movies
         [x] Title
@@ -108,4 +111,7 @@
     [] Cancel button
         [] Onlick goes back to show route
 
+
+Daily issues
+[] 6/15 - Edit route adds a new entry...does not edit properly
     
