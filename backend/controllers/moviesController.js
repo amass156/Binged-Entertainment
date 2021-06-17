@@ -18,14 +18,16 @@ router.get("/new", (req, res) => {
 
 // create a new movie
 router.post("/", (req, res) => {
-    Movie.create(req.body)
-    .then(result => {
-        res.redirect("/movies")
-    })
-    .catch(err => {
-        console.log(err);
-        res.send("no luck on create")
-    })
+    // if(req.body.rank <= 10){
+        Movie.create(req.body)
+        .then(result => {
+            res.redirect("/movies")
+        })
+        .catch(err => {
+            console.log(err);
+            res.send("no luck on create")
+        })
+    // }
 })
 
 // show route

@@ -4,8 +4,8 @@ const MovieSchema = new mongoose.Schema({
     name: {type: String, required: true},
     genre: String,
     comment: String,
-    date: Date,
-    rank: {type: Number, required:true, max: 10}
+    date: String,
+    rank: {type: Number, required:true}
 })
 
 // instantiate the Movie model
