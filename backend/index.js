@@ -2,6 +2,8 @@
 const express = require("express")
 const app = express()
 const methodOverride = require("method-override")
+const session = require("express-session")
+const flash = require("connect-flash")
 // const cors = require("cors")
 
 // initialize and configure express
@@ -12,6 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("/public"))
 app.use(methodOverride("_method"))
 app.use(methodOverride("_delete"))
+app.use(session({
+    secret: "session secret",
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use(flash())
+
 
 // require models
 const Movie = require("./models/movie")

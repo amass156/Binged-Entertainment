@@ -1,11 +1,48 @@
 const express = require("express")
 const router = express.Router()
 const Movie = require("../models/movie")
+const User = require("../models/user")
 
+// user login route
+router.get("/login", (req, res, next) => {
+    const messages = req.flash()
+    // messages gets passed in as an object
+    res.render("login", {})
+})
+
+router.post("/login", (req, res, next) => {
+    res.redirect("/users")
+})
+
+// registration page
+router.get("/register", (req, res, next) =>{
+    const message = req.flash()
+        // messages gets passed in as an object
+    res.render("register", {})
+})
+
+// post for registration
+router.post("/register", (req, res, next) =>{ 
+    const user = {
+        name: req.body.name,
+        username: req.body.name,
+        password: req.body.password
+    }
+    User.insertOne(user, (err) => {
+        if (err) {
+            req.flash("error", "User account already exists")
+        } else {
+            req.flash("success", "User account was registered successfully")
+        }
+
+        res.redirect("/register")
+    })
+})
 
 // home route for /movies
 router.get("/", (req, res) => {
     Movie.find({})
+    .populate("login")
     .then(movie => {
         res.render("index", {movie})
     })
@@ -33,7 +70,9 @@ router.post("/", (req, res) => {
 // show route
 router.get("/:id", (req, res) => {
     id = req.params.id
+    console.log(req.body)
     Movie.findById(id)
+    .populate("login")
     .then(movie => {
         res.render("show", movie)
     })

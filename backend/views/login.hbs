@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+{{!-- {{> messages}} --}}
+
+<form action="/movies/login" method="POST"> 
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="">
+    </div>
+
+    <div>
+        <label for="password"> Password:</label>
+        <input type="password" name="password" id="">
+    </div>
+    <button>Login</button>
+</form>
+
+<p>Or <a href="/movies/register">Register</a> an account</p>

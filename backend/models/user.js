@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true}
 })
 
-// instantiate the Movie model
+// instantiate the User model
 const User = mongoose.model("User", UserSchema)
 
 //  export Movie model

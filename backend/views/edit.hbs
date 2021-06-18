@@ -13,6 +13,8 @@
     <h1 >{{this.name}}</h1>
 </div>
 
+{{> messages}}
+
 <h4>Edit {{this.name}}</h4>
 <form action="/movies/{{this.id}}/?_method=put" method="POST">
     <div class="edit-form">

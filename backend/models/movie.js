@@ -5,7 +5,11 @@ const MovieSchema = new mongoose.Schema({
     genre: String,
     comment: String,
     date: String,
-    rank: {type: Number, required:true}
+    rank: {type: Number, required:true},
+    login: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
 })
 
 // instantiate the Movie model

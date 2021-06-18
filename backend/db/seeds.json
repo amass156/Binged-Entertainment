@@ -4,7 +4,12 @@
         "genre": "Action",
         "comment":"This was a great film",
         "date": "1/24/2020",
-        "rank": 4
+        "rank": 4,
+        "login": {
+            "name": "my name",
+            "username":"my username",
+            "password": "my password"
+        }
     },
     {
         "name": "Movie #2",
