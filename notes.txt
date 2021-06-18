@@ -1,117 +1,160 @@
 ------------------- User Stories -----------------
 [] A user should be able to see complete list by category (ranking, genre, date, alphabetical order)
-[] A user should be able to add a new movie/show
+    [x] A user should be able to add a new movie/show
 [] A user should be able to delete a movie/show
-[] A user should be able to update/edit a movie/show
-[] A user should be able to update info
-[x] A user should be able to rate the item on a scale of 1-10
-[x] A user should be able to add a genre.
-[x] A user should be able to give a brief description about what they thought (a comment)
+    [x] A user should be able to update/edit a movie/show
+    [x] A user should be able to rate the item on a scale of 1-10
+    [x] A user should be able to add a genre.
+    [x] A user should be able to give a brief description about what they thought (a comment)
 
 
 *** [] Have a modal show up giving a brief description of how to use the app ***
 
  -- -- -- -- -- -- -- Home Route - All movies displayed at once -- -- -- -- -- --
 
-    [] (Binged Entertainment) Header
+[] (Binged Entertainment) Header
 
     [x] Page title
 
     [x] Add New movie button
         [x] click leads to new route
 
-    [] List of Movies
-        [x] Title
-        [] Genre 
-            [] shows first 2 genres
-        [] Picture
-        [] Rank 
-        [] view more button
-            [] click leads to show route
+[] List of Movies
+    [x] Title
+    [] Genre 
+        [] shows first 2 genres
+    [] Picture
+    [] Rank 
+    [] view more button
+        [] click leads to show route
     
-    [] You have watched X amount of Movies
+[] You have watched X amount of Movies
 
 -- -- -- -- -- -- -- Show Route - One movie displayed in full detail -- -- -- -- -- --
 
-    [] (Binged Entertainment) Header
+[] (Binged Entertainment) Header
 
     [x] Page title
 
-    [] Delete button
-        [] successfully deletes one intended movie
+[] Delete button
+    [] successfully deletes one intended movie
 
     [x] Genre - shows full genre
 
-    [] Date
-        [] Only shows month/day/year
+    [x] Date
+        [x] Only shows month/day/year
 
-    [] Picture
+[] Picture
 
-    [] Rank
-        [] 10 or less
+[] Rank
+    [] 10 or less
+    [] error message pops up if not done correctly
 
     [x] Comments
 
     [x] Return to movie collection button 
         [x] onclick goes back to home route
     
-    [] Edit button
+    [x] Edit button
         [x] Onclick goes to edit route
-        [] words display in a light color
+        
 
 -- -- -- -- -- -- -- Create Route - Creates a new movie -- -- -- -- -- --
 
-    [] (Binged Entertainment) Header
+[] (Binged Entertainment) Header
 
     [x] Page title
 
-    [] Name
-        [] lightly shaded text that previews what to input
+    [x] Name
+        [x] lightly shaded text that previews what to input
     
-    [] Genre
-        [] lightly shaded text that previews what to input
+    [x] Genre
+        [x] lightly shaded text that previews what to input
     
-    [] Date
-        [] lightly shaded text that previews what to input
+    [x] Date
+        [x] lightly shaded text that previews what to input
 
-    [] Rank
-        [] lightly shaded text that previews what to input
+    [x] Rank
+        [x] lightly shaded text that previews what to input
 
-    [] Comments
-        [] lightly shaded text that previews what to input
+    [x] Comments
+        [x] lightly shaded text that previews what to input
 
-    [] Submit button
-        [] Onlick runs a post to home route, and goes back home
+    [x] Submit button
+        [x] Onlick runs a post to home route, and goes back home
     
-    [] Cancel button
-        [] Onlick goes back home
+[] Cancel button
+    [] Onlick goes back home
 
 -- -- -- -- -- -- -- -- -- Edit Route -- -- -- -- -- -- -- -- --
 
-    [] (Binged Entertainment) Header
+[] (Binged Entertainment) Header
 
     [x] Page title
 
-    [] Name
-        [] lightly shaded text that previews current information
+    [x] Name
+        [x] lightly shaded text that previews current information
     
-    [] Genre
-        [] lightly shaded text that previews current information
+    [x] Genre
+        [x] lightly shaded text that previews current information
     
-    [] Date
-        [] lightly shaded text that previews current information
+    [x] Date
+        [x] lightly shaded text that previews current information
 
-    [] Rank
-        [] lightly shaded text that previews current information
+[] Rank
+    [] lightly shaded text that previews current information
+    [] error message pops up if not done correctly
 
-    [] Comments
-        [] lightly shaded text that previews current information
+    [x] Comments
+        [x] lightly shaded text that previews current information
 
-    [] Submit button
+    [x] Submit button
         [x] Onlick runs a post to home route, and goes back to show route
     
-    [] Cancel button
-        [] Onlick goes back to show route
+[] Cancel button
+    [] Onlick goes back to show route
+
+-- -- -- -- -- -- -- -- -- Register Route -- -- -- -- -- -- -- -- --
+
+[] Header that says Binged Entertainment
+
+    [x] Page title
+
+    [x] Name
+    
+[] Username
+    [] error message that says username already exists
+    
+[] Password
+    [] greyed out instructions
+    
+[] Submit button
+    [] Adds a new use to current user collection
+    [] Submit leads to this.user collection 
+
+[] "Already have an account? Log in here" link
+
+-- -- -- -- -- -- -- -- -- Login Route -- -- -- -- -- -- -- -- --
+
+[] Header that says Binged Entertainment
+
+    [x] Page title
+    
+    [x] Username
+        [] needs a username to login
+        [] needs correct username to login
+        [] error message that says that username does not exist
+    
+[] Password
+    [] needs password to login
+    [] takes in correct password
+    [] error message that says password is incorrect
+    
+[] Submit button
+    [] Submit leads to this.user collection 
+
+[] "Already have an account? Log in here" link
+
 
 
 Daily issues

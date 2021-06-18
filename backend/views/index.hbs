@@ -33,6 +33,9 @@
 {{#each movie}}
 <div id="all-movies">
     Movie Name: {{this.name}}
+   <p>Rank: {{rank}}</p> 
+    Genre: {{genre}}
+    
 
     <div>
         <a href="/movies/{{this.id}}">More details</a>
@@ -40,3 +43,4 @@
 
 </div>
 {{/each}}
+ Genre: {{@index}} : {{genre}}
