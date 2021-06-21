@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Movie = require("../models/movie")
 const User = require("../models/user")
+const hbs = require("handlebars")
 
 // user login route
 router.get("/login", (req, res, next) => {
@@ -45,6 +46,7 @@ router.get("/", (req, res) => {
     .populate("login")
     .then(movie => {
         res.render("index", {movie})
+        console.log(movie[0].genre[0])
     })
 })
 

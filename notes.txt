@@ -13,6 +13,9 @@
  -- -- -- -- -- -- -- Home Route - All movies displayed at once -- -- -- -- -- --
 
 [] (Binged Entertainment) Header
+    []Header has border
+    [] Header is unique
+    [x] Header using through partials
 
     [x] Page title
 
@@ -24,15 +27,18 @@
     [] Genre 
         [] shows first 2 genres
     [] Picture
-    [] Rank 
-    [] view more button
-        [] click leads to show route
+    [x] Rank 
+    [x] view more button
+        [x] click leads to show route
     
 [] You have watched X amount of Movies
 
 -- -- -- -- -- -- -- Show Route - One movie displayed in full detail -- -- -- -- -- --
 
 [] (Binged Entertainment) Header
+    []Header has border
+    [] Header is unique
+    [x] Header appears through partial
 
     [x] Page title
 
@@ -62,6 +68,9 @@
 -- -- -- -- -- -- -- Create Route - Creates a new movie -- -- -- -- -- --
 
 [] (Binged Entertainment) Header
+    []Header has border
+    [] Header is unique
+    [x] Header using through partials
 
     [x] Page title
 
@@ -89,6 +98,9 @@
 -- -- -- -- -- -- -- -- -- Edit Route -- -- -- -- -- -- -- -- --
 
 [] (Binged Entertainment) Header
+    []Header has border
+    [] Header is unique
+    [x] Header using through partials
 
     [x] Page title
 
@@ -117,6 +129,9 @@
 -- -- -- -- -- -- -- -- -- Register Route -- -- -- -- -- -- -- -- --
 
 [] Header that says Binged Entertainment
+    []Header has border
+    [] Header is unique
+    [x] Header using through partials
 
     [x] Page title
 
@@ -137,6 +152,9 @@
 -- -- -- -- -- -- -- -- -- Login Route -- -- -- -- -- -- -- -- --
 
 [] Header that says Binged Entertainment
+    []Header has border
+    [] Header is unique
+    [x] Header using through partials
 
     [x] Page title
     
@@ -160,5 +178,10 @@
 Daily issues
 [x] 6/15 - Edit route adds a new entry...does not edit properly
 [] 6/16 - Rank needs to be limited to 10..user needs to be notified if they are invalid
-[] 6/16 - understand more about the "Public folder" and "static directories" 
-[] 6/16 - get CSS to work
+[x] 6/16 - understand more about the "Public folder" and "static directories" 
+[x] 6/16 - get CSS to work
+[] 6/21 - Only one genre should appear on the home route
+[]6/21 - One genre shows during seed data, but once an entry is updated, the whole list renders
+[x]6/21- why is total number in collections showing number +1
+[]6/21 - total number of shows in the collection
+

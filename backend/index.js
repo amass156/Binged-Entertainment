@@ -4,14 +4,16 @@ const app = express()
 const methodOverride = require("method-override")
 const session = require("express-session")
 const flash = require("connect-flash")
+const hbs = require("hbs")
 // const cors = require("cors")
 
 // initialize and configure express
 // app.use(cors())
+hbs.registerPartials(__dirname + '/views/partials');
 app.set("view engine", "hbs")
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("/public"))
+app.use(express.static("public"))
 app.use(methodOverride("_method"))
 app.use(methodOverride("_delete"))
 app.use(session({
@@ -26,6 +28,7 @@ app.use(flash())
 const Movie = require("./models/movie")
 // routes
 const moviesController = require("./controllers/moviesController")
+const { get } = require("mongoose")
 app.use("/movies", moviesController)
 // app.get("/", (req, res) => {
 //     Movie.find({})
@@ -34,6 +37,29 @@ app.use("/movies", moviesController)
 //     })
 // })
 
+
+// Total number of movies in a collection
+// hbs.registerHelper("totalNumberMovies", function(movies) {
+//     console.log(Object.keys(movies));
+//     return Object.keys(movies).length 
+// })
+
+hbs.registerHelper("totalNumberMovies", function(movies) {
+    const getMax = (a, b) => Math.max(a, b);
+    console.log((movies))
+    return movies
+})
+
+
+hbs.registerHelper("movieIndex", function(currIndex) {
+    indexNum = currIndex + 1
+        return indexNum
+})
+
+// console.log("oneGenre");
+
+// Handlebars.registerPartial("headerPartial", 
+// ))
 
 // listening port
 app.set("port", process.env.PORT || 3500)

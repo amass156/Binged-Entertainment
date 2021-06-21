@@ -6,7 +6,7 @@
 </style>
 <h1>Add a new Movie</h1>
 
-{{> messages}}
+{{!-- {{> messages}} --}}
 
 <form action="/movies" method="POST">
     <div class="questions">
@@ -20,7 +20,7 @@
         <input type="date" name="date">
 
         <label for="rank"> Rank:</label>
-        <input type="text" name="rank" pattern="" placeholder="Must be between 1-10">
+        <input type="number" name="rank" pattern="" placeholder="Must be between 1-10">
 
         <label for="comments"> Comments</label>
         <input type="text" name="comment" placeholder="Best Movie Ever!">
