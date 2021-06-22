@@ -184,4 +184,7 @@ Daily issues
 []6/21 - One genre shows during seed data, but once an entry is updated, the whole list renders
 [x]6/21- why is total number in collections showing number +1
 [x]6/21 - total number of shows in the collection
+[]6/21 - multiple accounts being made with same username
+[]6/21 - users cannot create, only main user can 
+[]6/21 - errors for users 
 

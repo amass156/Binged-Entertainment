@@ -16,10 +16,11 @@ router.post("/login", (req, res, next) => {
     username = req.body.username
     password = req.body.password 
     User.findOne({username: username})
-    .then((user, err)=> {
+    .then((user, error)=> {
         if(user && user.password == password) {
+            // console.log(user)
             Movie.find({login: user._id})
-            .then((movie, er) => {
+            .then((movie, err) => {
                 res.render("index", {movie})
                 console.log(movie)
             })
@@ -31,27 +32,29 @@ router.post("/login", (req, res, next) => {
 })
 
 // registration page
-router.get("/register", (req, res, next) =>{
+router.get("/register", (req, res) =>{
     // const message = req.flash()
         // messages gets passed in as an object
-    res.render("register", {})
+    res.render("register", {message:true})
 })
 
 // post for registration
 router.post("/register", (req, res, next) =>{ 
     const user = {
         name: req.body.name,
-        username: req.body.name,
+        username: req.body.username,
         password: req.body.password
     }
-    User.create(user, (err) => {
+    // create an if statement that checks to see if the user already exists. 
+    // Only if the user does not exist an account should be created
+    User.create(user, err => {
         if (err) {
-            req.flash("error", "User account already exists")
-        } else {
-            req.flash("success", "User account was registered successfully")
-        }
-
+            req.render("register", {message: true})
+        } 
+        else {
+        //     req.flash("success", "User account was registered successfully")
         res.render("login")
+        }
     })
 })
 
