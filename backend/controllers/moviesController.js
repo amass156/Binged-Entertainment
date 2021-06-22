@@ -3,21 +3,36 @@ const router = express.Router()
 const Movie = require("../models/movie")
 const User = require("../models/user")
 const hbs = require("handlebars")
+const { findOne } = require("../models/movie")
 
 // user login route
 router.get("/login", (req, res, next) => {
-    const messages = req.flash()
+    // const messages = req.flash()
     // messages gets passed in as an object
     res.render("login", {})
 })
 
-router.post("/login", (req, res, next) => {
-    res.redirect("/users")
+router.post("/login", (req, res, next) => { 
+    username = req.body.username
+    password = req.body.password 
+    User.findOne({username: username})
+    .then((user, err)=> {
+        if(user && user.password == password) {
+            Movie.find({login: user._id})
+            .then((movie, er) => {
+                res.render("index", {movie})
+                console.log(movie)
+            })
+        } else {
+            res.render("login", {message: true})
+        }
+    })
+    // res.redirect("/users")
 })
 
 // registration page
 router.get("/register", (req, res, next) =>{
-    const message = req.flash()
+    // const message = req.flash()
         // messages gets passed in as an object
     res.render("register", {})
 })
@@ -29,14 +44,14 @@ router.post("/register", (req, res, next) =>{
         username: req.body.name,
         password: req.body.password
     }
-    User.insertOne(user, (err) => {
+    User.create(user, (err) => {
         if (err) {
             req.flash("error", "User account already exists")
         } else {
             req.flash("success", "User account was registered successfully")
         }
 
-        res.redirect("/register")
+        res.render("login")
     })
 })
 

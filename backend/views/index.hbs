@@ -31,28 +31,28 @@
 
 
 {{!-- Total number of movies in a collection --}}
-{{#each movie as |movie index|}}
-        <span>All {{totalNumberMovies index}} Titles</span>
-{{/each}}
+{{!-- {{movie as |movie index|}} --}}
+
+        <span> {{movie.length}} Movies</span>
+{{!-- {{/each}} --}}
+
 
 {{!-- List of all movies --}}
 {{#each movie as |movie index|}}
-    <div>All {{movieIndex index}} Titles</div>
-{{/each}}
-
-    {{#each movie}}
     <div id="all-movies">
         Movie Name: {{this.name}}
     <p>Rank: {{rank}}</p> 
         Genre: {{genre.[0]}}
         
-
         <div>
             <a href="/movies/{{this.id}}">More details</a>
         </div>
 
-
+        {{!-- movie number by index --}}
+        <div>Movie #{{movieIndex index}}</div>
+   
     </div>
-    {{/each}}
+{{/each}}
+
 
     

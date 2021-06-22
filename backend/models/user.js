@@ -2,7 +2,7 @@ const mongoose = require("../db/connection")
 
 const UserSchema = new mongoose.Schema({
     name: String,
-    username: {type: String, required: true},
+    username: {type: String, required: true, unique: true},
     password: {type: String, required: true}
 })
 

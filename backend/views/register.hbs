@@ -12,14 +12,15 @@
 <form action="/movies/register" method="POST">
     <div class="user">
         <label for="name">Name:</label>
-        <input type="text" name="name" pattern="" title=""/>
+        <input type="text" name="name"/>
 
         <label for="username">Username:</label>
-        <input type="text" name="username" pattern="" title="">
+        <input type="text" name="username"  title="">
 
         <label for="password">Password:</label>
-        <input type="text" name="password" pattern="" title="">
+        <input type="text" name="password" title="">
         <input type="submit">
+        {{!-- add patterns later --}}
   </div>
 
   {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}

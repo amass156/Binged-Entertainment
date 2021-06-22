@@ -25,10 +25,14 @@
         <input type="text"  name="genre" value="{{this.genre}}">
 
         <label for="date">Date Watched: {{this.date}}</label>
-        <input type="date" name="date" value="{{this.date}}">
+        <input type="text" name="date" value="{{this.date}}">
+        {{!-- onlick that changes type: text to type: date --}}
 
         <label for="rank"> Rank:</label>
-        <input type="number" name="rank" value="{{this.rank}}">
+        <script>
+
+        </script>
+        <input max="10" min="5" type="number" name="rank" value="{{this.rank}}">
 
         <label for="comments"> Comments:</label>
         <input type="text" name="comment" value="{{this.comment}}">

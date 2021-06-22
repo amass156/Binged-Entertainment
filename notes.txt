@@ -183,5 +183,5 @@ Daily issues
 [] 6/21 - Only one genre should appear on the home route
 []6/21 - One genre shows during seed data, but once an entry is updated, the whole list renders
 [x]6/21- why is total number in collections showing number +1
-[]6/21 - total number of shows in the collection
+[x]6/21 - total number of shows in the collection
 

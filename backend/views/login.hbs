@@ -2,6 +2,10 @@
 
 {{!-- {{> messages}} --}}
 
+{{#if message}}
+<h2>Invalid username</h2>
+{{/if}}
+
 <form action="/movies/login" method="POST"> 
     <div>
         <label for="username">Username:</label>
