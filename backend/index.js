@@ -5,6 +5,7 @@ const methodOverride = require("method-override")
 const session = require("express-session")
 const flash = require("connect-flash")
 const hbs = require("hbs")
+const https = require('https')
 // const cors = require("cors")
 
 // initialize and configure express
@@ -55,6 +56,8 @@ hbs.registerHelper("movieIndex", function(currIndex) {
     indexNum = currIndex + 1
         return indexNum
 })
+
+
 
 // console.log("oneGenre");
 

@@ -1,3 +1,31 @@
 h1 {
     color: red;
+    display: flex;
+    justify-content: center;
+}
+
+#new-movie {
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+}
+
+#all-movies {
+    border: solid ;
+}
+
+/* edit route */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+#edit-title {
+    display: flex;
+    justify-content: center;
+}
+
+/* register route */
+.user {
+    display: flex;
+    flex-direction: column;
 }

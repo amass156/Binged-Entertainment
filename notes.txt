@@ -9,6 +9,7 @@
 
 
 *** [] Have a modal show up giving a brief description of how to use the app ***
+*** [] Have a description of the movie render form API ***
 
  -- -- -- -- -- -- -- Home Route - All movies displayed at once -- -- -- -- -- --
 
@@ -31,7 +32,7 @@
     [x] view more button
         [x] click leads to show route
     
-[] You have watched X amount of Movies
+[x] You have watched X amount of Movies
 
 -- -- -- -- -- -- -- Show Route - One movie displayed in full detail -- -- -- -- -- --
 
@@ -114,7 +115,8 @@
         [x] lightly shaded text that previews current information
 
 [] Rank
-    [] lightly shaded text that previews current information
+    [x] text that previews current information
+    [] lightly shaded grey
     [] error message pops up if not done correctly
 
     [x] Comments
@@ -123,8 +125,8 @@
     [x] Submit button
         [x] Onlick runs a post to home route, and goes back to show route
     
-[] Cancel button
-    [] Onlick goes back to show route
+[x] Cancel button
+    [x] Onlick goes back to show route
 
 -- -- -- -- -- -- -- -- -- Register Route -- -- -- -- -- -- -- -- --
 
@@ -159,17 +161,17 @@
     [x] Page title
     
     [x] Username
-        [] needs a username to login
-        [] needs correct username to login
-        [] error message that says that username does not exist
+        [x] needs a username to login
+        [x] needs correct username to login
+        [x] error message that says that username does not exist
     
 [] Password
     [] needs password to login
     [] takes in correct password
     [] error message that says password is incorrect
     
-[] Submit button
-    [] Submit leads to this.user collection 
+[x] Submit button
+    [x] Submit leads to this.user collection 
 
 [] "Already have an account? Log in here" link
 
@@ -187,4 +189,5 @@ Daily issues
 []6/21 - multiple accounts being made with same username
 []6/21 - users cannot create, only main user can 
 []6/21 - errors for users 
+[] 6/21 - Users should be able to filter using rank, genre, alphabetical order
 

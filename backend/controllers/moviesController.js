@@ -39,7 +39,7 @@ router.get("/register", (req, res) =>{
 })
 
 // post for registration
-router.post("/register", (req, res, next) =>{ 
+router.post("/register", (req, res) =>{ 
     const user = {
         name: req.body.name,
         username: req.body.username,
@@ -49,7 +49,7 @@ router.post("/register", (req, res, next) =>{
     // Only if the user does not exist an account should be created
     User.create(user, err => {
         if (err) {
-            req.render("register", {message: true})
+            res.render("register", {message: true})
         } 
         else {
         //     req.flash("success", "User account was registered successfully")
@@ -68,6 +68,11 @@ router.get("/", (req, res) => {
     })
 })
 
+// Search route that handles movie names
+// render them all the movies
+// onclick go to create form, then input all subjective information
+
+
 // create route for /movies
 router.get("/new", (req, res) => {
     res.render("new")
@@ -76,6 +81,7 @@ router.get("/new", (req, res) => {
 // create a new movie
 router.post("/", (req, res) => {
     // if(req.body.rank <= 10){
+        // break up each req.body(put genre in an array )
         Movie.create(req.body)
         .then(result => {
             res.redirect("/movies")
@@ -94,6 +100,7 @@ router.get("/:id", (req, res) => {
     Movie.findById(id)
     .populate("login")
     .then(movie => {
+        movie.img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
         res.render("show", movie)
     })
 })
@@ -108,6 +115,8 @@ router.get("/:id/edit", (req, res) => {
 }) 
 
 router.put("/:id", (req, res) => {
+    // push new genre into the array, create a new array for the genre
+    // break up req.body... put genre into an array
     let id = req.params.id
     console.log(req.body)
     Movie.findOneAndUpdate(
@@ -123,3 +132,6 @@ router.put("/:id", (req, res) => {
 
 
 module.exports = router
+
+47.88
+77.28

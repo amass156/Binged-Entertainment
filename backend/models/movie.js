@@ -6,6 +6,8 @@ const MovieSchema = new mongoose.Schema({
     comment: String,
     date: String,
     rank: {type: Number, required:true},
+    img: String,
+    imdbID: String,
     login: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

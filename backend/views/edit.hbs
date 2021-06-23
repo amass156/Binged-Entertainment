@@ -1,16 +1,6 @@
-<style>
-    .edit-form {
-        display: flex;
-        flex-direction: column;
-    }
-    #edit-title {
-        display: flex;
-        justify-content: center;
-    }
 
-</style>
 <div id="edit-title">
-    <h1 >{{this.name}}</h1>
+    <h1>{{this.name}}</h1>
 </div>
 
 {{!-- {{> messages}} --}}
@@ -41,5 +31,5 @@
   </div>
 </form>
 <div>
-    <a href="/movies">Cancel</a>
+    <a href="/movies/{{this.id}}">Cancel</a>
 </div>
