@@ -5,7 +5,7 @@ const seedData = require("./seeds.json")
 Movie.deleteMany({})
     .then(() => User.deleteMany({}))
     .then(() => {
-        return User.create({name: "My Name", username: "fakeusername123", password: "fakepassword"})
+        return User.create({name: "nameOfUser", username: "username", password: "password"})
             .then((user) => 
             seedData.map((movie) => ({...movie, login: user._id}))
             )
