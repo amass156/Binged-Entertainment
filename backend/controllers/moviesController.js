@@ -65,6 +65,8 @@ router.get("/", (req, res) => {
     Movie.find({})
     .populate("login")
     .then(movie => {
+        movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
+        console.log(movie.img)
         res.render("index", {movie})
         console.log(movie[0].genre[0])
     })
@@ -82,6 +84,7 @@ router.get("/search", (req, res) => {
 router.get("/search/:id", (req, res) => {
     const id = req.params.id
     Movie.findById(id)
+    .populate("login")
     .then(movie => {
         res.render("new", movie)
     })
@@ -96,6 +99,7 @@ router.post("/search/new", (req, res) => {
             name:req.body.name,
             genre: [req.body.genre]
     })
+    // .populate("login")
     .then((movie)=> {
         res.render("new", {movie})
     })
@@ -120,6 +124,7 @@ router.post("/search/new", (req, res) => {
 router.post("/", (req, res) => {
         // break up each req.body(put genre in an array )
         Movie.create(req.body)
+        // .populate("login")
         .then(result => {
             res.redirect("/movies")
         })

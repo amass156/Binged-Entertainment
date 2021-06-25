@@ -36,6 +36,7 @@
 {{!-- List of all movies --}}
 {{#each movie as |movie index|}}
     <div id="all-movies">
+       <img src="{{this.img}}" width="95px" alt="whatever image">
         Movie Name: {{this.name}}
     <p>Rank: {{rank}}</p> 
         Genre: {{genre.[0]}}
