@@ -1,11 +1,11 @@
 <div>
-    <h1>Your Movie Collection</h1>
+    <h1>{{movie.[0].login.name}}'s Movie Collection</h1>
 </div>
 
 {{!-- Add a new movie --}}
 <div id="new-movie">
     <button>
-         <a href="/movies/new"> Add New Movie</a>
+         <a href="/movies/search/"> Add New Movie</a>
     </button>
 </div>
 
@@ -19,6 +19,7 @@
         <a class="dropdown-item" href="#">A-Z</a>
         <a class="dropdown-item" href="#">Genre</a>
         <a class="dropdown-item" href="#">Ranking</a>
+        <a class="dropdown-item" href="#">Z-A</a>
         <div class="dropdown-divider"></div>
     </div>
     </div>
@@ -48,6 +49,10 @@
    
     </div>
 {{/each}}
+
+<footer id="index-footer">
+    {{> footer}}
+</footer>
 
 
     

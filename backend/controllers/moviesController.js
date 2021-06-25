@@ -73,16 +73,51 @@ router.get("/", (req, res) => {
 // Search route that handles movie names
 // render them all the movies
 // onclick go to create form, then input all subjective information
+// search route for movie name
+router.get("/search", (req, res) => {
+    res.render("movieSearch")
+})
+
+// get route for searched movie, by ID
+router.get("/search/:id", (req, res) => {
+    const id = req.params.id
+    Movie.findById(id)
+    .then(movie => {
+        res.render("new", movie)
+    })
+})
+
+// continue creating your new movie
+router.post("/search/new", (req, res) => {
+    // break up each req.body(put genre in an array)
+    routeID = req.params.id
+    Movie.create(
+        {
+            name:req.body.name,
+            genre: [req.body.genre]
+    })
+    .then((movie)=> {
+        res.render("new", {movie})
+    })
+    .catch(err => {
+        console.log(err);
+        res.render("movieSearch", {message: true})
+    })
+})
+
 
 
 // create route for /movies
-router.get("/new", (req, res) => {
-    res.render("new")
-})
+// router.get("/search/new", (req, res) => {
+//     routeID = req.params.id
+//     Movie.findById(routeID)
+//     .then(movie => {
+//         res.render("edit", movie)
+//     })
+// })
 
 // create a new movie
 router.post("/", (req, res) => {
-    // if(req.body.rank <= 10){
         // break up each req.body(put genre in an array )
         Movie.create(req.body)
         .then(result => {
@@ -92,7 +127,6 @@ router.post("/", (req, res) => {
             console.log(err);
             res.send("no luck on create")
         })
-    // }
 })
 
 // show route

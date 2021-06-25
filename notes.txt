@@ -195,3 +195,5 @@ Daily issues
 []6/23 - I want to write a custom message on my movies controller in order to give back the user the incorrect username the tried to use.
 create a search page that searches for the movie.. 
 []6/23 - create an event listener to 
+[]6/25 - footer does not display correctly if error is made in the search page
+[] 6/25 - footer does not display correctly on the add new movie page

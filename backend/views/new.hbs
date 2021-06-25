@@ -1,32 +1,43 @@
-<style>
-    .questions {
-        display: flex;
-        flex-direction: column ;
-    }
-</style>
-<h1>Add a new Movie</h1>
-
-{{!-- {{> messages}} --}}
-
-<form action="/movies" method="POST">
-    <div class="questions">
-        <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="Insert Movie Name"/>
+<div class="container">
     
-        <label for="genre">Genre:</label>
-        <input type="text"  name="genre" placeholder="Action, Adventure, Horror">
+    <h1>Add a new Movie</h1>
 
-        <label for="date">Date Watched:</label>
-        <input type="date" name="date">
+    <form action="/movies" method="POST">
+        <div class="form-group">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" name="name" value="{{movie.name}}" class="form-control" readonly />
+    </div>
+        
+        <div class="form-group">
+            <label for="genre" class="form-label">Genre:</label>
+            <input type="text"  name="genre" value="{{movie.genre}}" class="form-control" readonly>
+        </div>
 
-        <label for="rank"> Rank:</label>
-        <input type="number" name="rank" pattern="" placeholder="Must be between 1-10">
+        <div class="form-group">
+            <label for="date" class="form-label">Date Watched:</label>
+            <input type="date" name="date" class="form-control">
+        </div>
 
-        <label for="comments"> Comments</label>
-        <input type="text" name="comment" placeholder="Best Movie Ever!">
 
-        <input type="submit">
-  </div>
+        <div class="form-group">
+            <label for="rank" class="form-label"> Rank:</label>
+            <input type="number" name="rank" max="10" placeholder="Must be between 1-10" class="form-control">
 
-  {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
-</form>
+        </div>
+
+        <div class="form-group">
+            <label for="comments" class="form-label"> Comments</label>
+            <input type="text" name="comment" placeholder="Best Movie Ever!" class="form-control">
+        </div>
+
+            <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </span>
+
+    {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
+    </form>
+
+</div>
+<footer id="footer">
+    {{> footer}}
+</footer>
