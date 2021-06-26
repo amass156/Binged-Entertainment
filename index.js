@@ -27,9 +27,9 @@ app.use(flash())
 
 
 // require models
-const Movie = require("./models/movie")
+const Movie = require("./backend/models/movie")
 // routes
-const moviesController = require("./controllers/moviesController")
+const moviesController = require("./backend/controllers/moviesController")
 const { get } = require("mongoose")
 app.use("/movies", moviesController)
 // app.get("/", (req, res) => {
@@ -57,9 +57,13 @@ app.use("/movies", moviesController)
 
 // listening port
 app.set("port", process.env.PORT || 3500)
-app.listen(app.get("port"), () => {
-    console.log(`Running on that ${app.get("port")} thang`);
-})
+// app.listen(app.get("port"), () => {
+//     console.log(`Running on that ${app.get("port")} thang`);
+// })
+
+app.listen(process.env.PORT || 3500, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 
 
 
