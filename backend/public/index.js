@@ -23,6 +23,10 @@ function genre(a, b) {
     return 0
 }
 // filter by ranking
+
+// function sortbyRank(movies){
+//     _Readable.sortIndex(movies, movies.genre)
+// }
 function highestRating(a, b) {
     return b.rank - a.rank
 }

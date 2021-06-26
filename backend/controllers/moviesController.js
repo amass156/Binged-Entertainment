@@ -9,23 +9,27 @@ const { findOne } = require("../models/movie")
 router.get("/login", (req, res, next) => {
     // const messages = req.flash()
     // messages gets passed in as an object
+    // console.log(res)
     res.render("login", {})
 })
 
 router.post("/login", (req, res, next) => { 
     username = req.body.username
     password = req.body.password 
+    // console.log(username)
+    // console.log(password)
     User.findOne({username: username})
     .then((user, error)=> {
         if(user && user.password == password) {
             Movie.find({login: user._id})
             .then((movie, err) => {
                 // specify which users collection of movie will render
-                res.render("index", {movie})
+                res.render("index", {movie, user})
                 console.log(movie)
             })
         } else {
             res.render("login", {message: true})
+            // console.log(user)
         }
     })
 })
@@ -64,13 +68,57 @@ router.post("/register", (req, res) =>{
 router.get("/", (req, res) => {
     Movie.find({})
     .populate("login")
-    .then(movie => {
+    // do a .then(()=> {
+        // req.session.userid
+    // })
+    .then((movie, user) => {
+        console.log(movie)
         movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
-        console.log(movie.img)
-        res.render("index", {movie})
-        console.log(movie[0].genre[0])
+    
+        // console.log(movie.img)
+        // console.log("dre")
+        // console.log(movie)
+        // console.log(User.findById({}))
+
+        res.render("index", {movie, user})
+        // console.log(movie[0].genre[0])
     })
 })
+
+// sorts rank from highest to lowest
+router.get("/rank", (req, res) => {
+    Movie.find({})
+    .populate("login")
+    .then(movie => {
+        movie.sort((b, a) => a.rank - b.rank)
+        movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
+        // console.log(movie.img)
+        // console.log("dre")
+        // console.log(movie)
+        // console.log(User.findById({}))
+
+        res.render("index", {movie})
+        // console.log(movie[0].genre[0])
+    })
+})
+
+router.get("/a_z", (req, res) => {
+    Movie.find({})
+    .populate("login")
+    .then(movie => {
+        movie.sort((a, b) => b.name - a.name)
+        movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
+        // console.log(movie.img)
+        // console.log("dre")
+        // console.log(movie)
+        // console.log(User.findById({}))
+
+        res.render("index", {movie})
+        // console.log(movie[0].genre[0])
+    })
+})
+
+// router.get
 
 // Search route that handles movie names
 // render them all the movies
@@ -93,11 +141,13 @@ router.get("/search/:id", (req, res) => {
 // continue creating your new movie
 router.post("/search/new", (req, res) => {
     // break up each req.body(put genre in an array)
+    console.log("test")
     routeID = req.params.id
     Movie.create(
         {
             name:req.body.name,
             genre: [req.body.genre]
+            // login: 
     })
     // .populate("login")
     .then((movie)=> {
@@ -122,10 +172,21 @@ router.post("/search/new", (req, res) => {
 
 // create a new movie
 router.post("/", (req, res) => {
-        // break up each req.body(put genre in an array )
-        Movie.create(req.body)
+        // break up each req.body(put genre in an array)
+       let movieName = req.body.name
+        let genre = req.body.genre
+        let date = req.body.date
+        let rank = req.body.rank
+        let comment = req.body.comment
+        // login = req.body.login
+        User.findById(users._id)        
+        .then(()=> {
+            Movie.create(req.body)
+        })
         // .populate("login")
         .then(result => {
+            // console.log(result)
+
             res.redirect("/movies")
         })
         .catch(err => {
@@ -141,7 +202,7 @@ router.get("/:id", (req, res) => {
     Movie.findById(id)
     .populate("login")
     .then(movie => {
-        movie.img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
+        // movie.img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
         res.render("show", movie)
     })
 })

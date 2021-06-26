@@ -6,6 +6,7 @@ const session = require("express-session")
 const flash = require("connect-flash")
 const hbs = require("hbs")
 const https = require('https')
+const fetch = require("node-fetch")
 // const cors = require("cors")
 
 // initialize and configure express
@@ -45,24 +46,14 @@ app.use("/movies", moviesController)
 //     return Object.keys(movies).length 
 // })
 
-hbs.registerHelper("totalNumberMovies", function(movies) {
-    const getMax = (a, b) => Math.max(a, b);
-    console.log((movies))
-    return movies
-})
 
 
-hbs.registerHelper("movieIndex", function(currIndex) {
-    indexNum = currIndex + 1
-        return indexNum
-})
+// hbs.registerHelper("movieIndex", function(currIndex) {
+//     indexNum = currIndex + 1
+//         return indexNum
+// })
 
 
-
-// console.log("oneGenre");
-
-// Handlebars.registerPartial("headerPartial", 
-// ))
 
 // listening port
 app.set("port", process.env.PORT || 3500)
