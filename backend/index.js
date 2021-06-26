@@ -34,8 +34,12 @@ const { get } = require("mongoose")
 app.use("/movies", moviesController)
 
 app.get("/", (req, res)=> {
-    res.send("ok")
+    res.redirect("/movies/login")
 })
+
+// do a res.redirect to /movies/register
+
+
 // app.get("/", (req, res) => {
 //     Movie.find({})
 //     .then(movie => {
@@ -65,9 +69,6 @@ app.listen(app.get("port"), () => {
     console.log(`Running on that ${app.get("port")} thang`);
 })
 
-// app.listen(process.env.PORT || 3500, function(){
-//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-//   });
 
 
 
