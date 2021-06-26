@@ -32,6 +32,10 @@ const Movie = require("./models/movie")
 const moviesController = require("./controllers/moviesController")
 const { get } = require("mongoose")
 app.use("/movies", moviesController)
+
+app.get("/", (req, res)=> {
+    res.send("ok")
+})
 // app.get("/", (req, res) => {
 //     Movie.find({})
 //     .then(movie => {
