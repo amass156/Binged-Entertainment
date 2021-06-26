@@ -1,0 +1,60 @@
+<div>
+    <h1>{{user.name}}'s Movie Collection</h1>
+</div>
+
+{{!-- Add a new movie --}}
+<div id="new-movie">
+    <button>
+         <a href={{user._id}}> Add New Movie</a>
+    </button>
+</div>
+
+<div style="display: flex; justify-content:flex-end">
+    <div class="btn-group" >
+        <button type="button" class="btn btn-secondary">Filter by:</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only"></span>
+        </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="/movies/a_z">A-Z</a>
+        <a class="dropdown-item" href="#">Genre</a>
+        <a class="dropdown-item" href="/movies/rank">Ranking</a>
+        <a class="dropdown-item" href="#">Z-A</a>
+        <div class="dropdown-divider"></div>
+    </div>
+    </div>
+</div>
+{{!-- Total number of movies in a collection --}}
+<div class="container">
+<div>
+    <span> {{movie.length}} Movies</span>
+</div>
+
+    {{#each movie as |movie index|}}
+        <div id="all-movies">
+        <img src="{{this.img}}" width="95px" alt="whatever image">
+            Movie Name: {{this.name}}
+        <p>Rank: {{rank}}</p> 
+            Genre: {{genre.[0]}}
+            
+            <div>
+                <a href="/movies/{{this.id}}">More details</a>
+            </div>
+
+            {{!-- movie number by index --}}
+            <div>Movie #{{movieIndex index}}</div>
+    
+        </div>
+    {{/each}}
+</div>
+
+{{!-- List of all movies --}}
+
+<footer id="index-footer">
+    {{> footer}}
+</footer>
+
+
+<script src="../public/index.js"></script>
+
+    

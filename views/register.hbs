@@ -1,0 +1,39 @@
+<h1>Create a username </h1>
+
+<div class="container">
+  {{#if message}}
+   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Username already exists. Please enter a new username</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {{/if}}
+  <form action="/movies/register" method="POST">
+      <div class="user form-group">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" name="name" class="form-control" title=""/>
+      </div>
+      <div class="form-group">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" name="username" class="form-control"  title="" required>
+      </div>
+
+    <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input type="text" name="password" class="form-control" title="" required>
+    </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+          {{!-- add patterns later --}}
+
+    {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
+  </form>
+
+</div>
+
+
+<center>
+  <p>Already have an account? <a href="/movies/login">Login</a> </p>
+</center>
+
+<footer id="footer">
+        {{> footer}}
+</footer>
