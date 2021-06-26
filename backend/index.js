@@ -52,10 +52,10 @@ app.get("/", (req, res)=> {
 
 
 
-// hbs.registerHelper("movieIndex", function(currIndex) {
-//     indexNum = currIndex + 1
-//         return indexNum
-// })
+hbs.registerHelper("movieIndex", function(currIndex) {
+    indexNum = currIndex + 1
+        return indexNum
+})
 
 
 
