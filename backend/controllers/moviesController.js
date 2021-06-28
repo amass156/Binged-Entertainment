@@ -25,7 +25,7 @@ router.post("/login", (req, res, next) => {
             .then((movie, err) => {
                 // specify which users collection of movie will render
                 res.render("index", {movie, user})
-                console.log(movie)
+                // console.log(movie)
             })
         } else {
             res.render("login", {message: true})
@@ -72,7 +72,7 @@ router.get("/", (req, res) => {
         // req.session.userid
     // })
     .then((movie, user) => {
-        console.log(movie)
+        // console.log(movie)
         movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
     
         // console.log(movie.img)
@@ -125,7 +125,7 @@ router.get("/a_z", (req, res) => {
 // onclick go to create form, then input all subjective information
 // search route for movie name
 router.get("/search", (req, res) => {
-    res.render("movieSearch")
+    res.render("new")
 })
 
 // get route for searched movie, by ID
@@ -139,25 +139,25 @@ router.get("/search/:id", (req, res) => {
 })
 
 // continue creating your new movie
-router.post("/search/new", (req, res) => {
-    // break up each req.body(put genre in an array)
-    console.log("test")
-    routeID = req.params.id
-    Movie.create(
-        {
-            name:req.body.name,
-            genre: [req.body.genre]
-            // login: 
-    })
-    // .populate("login")
-    .then((movie)=> {
-        res.render("new", {movie})
-    })
-    .catch(err => {
-        console.log(err);
-        res.render("movieSearch", {message: true})
-    })
-})
+// router.post("/search/new", (req, res) => {
+//     // break up each req.body(put genre in an array)
+//     console.log("test")
+//     routeID = req.params.id
+//     Movie.create(
+//         {
+//             name:req.body.name,
+//             genre: [req.body.genre]
+//             // login: 
+//     })
+//     // .populate("login")
+//     .then((movie)=> {
+//         res.render("new", {movie})
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.render("movieSearch", {message: true})
+//     })
+// })
 
 
 
@@ -179,10 +179,10 @@ router.post("/", (req, res) => {
         let rank = req.body.rank
         let comment = req.body.comment
         // login = req.body.login
-        User.findById(users._id)        
-        .then(()=> {
+        // User.findById(users._id)        
+        // .then(()=> {
             Movie.create(req.body)
-        })
+        // })
         // .populate("login")
         .then(result => {
             // console.log(result)
@@ -198,7 +198,7 @@ router.post("/", (req, res) => {
 // show route
 router.get("/:id", (req, res) => {
     id = req.params.id
-    console.log(req.body)
+    // console.log(req.body)
     Movie.findById(id)
     .populate("login")
     .then(movie => {

@@ -1,11 +1,11 @@
 [
     {
-        "name": "Movie #1",
+        "name": "Black Panther",
         "genre": ["Action", "Adventure", "Horror"],
         "comment":"This was a great film",
         "date": "1/24/2020",
         "rank": 4,
-        "img": " ",
+        "img": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg",
         "login": {
             "name": "my name",
             "username":"my username",
@@ -13,25 +13,28 @@
         }
     },
     {
-        "name": "Movie #2",
+        "name": "Training Day",
         "genre": ["Adventure", "Art"],
         "comment":"This was a film for the ages",
         "date": "2/8/10",
-        "rank": 8
+        "rank": 8,
+        "img": "https://m.media-amazon.com/images/M/MV5BMDZkMTUxYWEtMDY5NS00ZTA5LTg3MTItNTlkZWE1YWRjYjMwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
         
     },
     {
-        "name": "Movie #3",
+        "name": "Insidious",
         "genre": ["Horror", "Banger"],
         "comment":"This was a horrible scary movie.",
         "date": "6/18/14",
-        "rank": 3
+        "rank": 3,
+        "img":"https://m.media-amazon.com/images/M/MV5BMTYyOTAxMDA0OF5BMl5BanBnXkFtZTcwNzgwNTc1NA@@._V1_.jpg"
     },
     {
-        "name": "Movie #4",
+        "name": "How to train your Dragon",
         "genre": ["Sci-Fi", "Mystery"],
         "comment":"This was the best movie all year.",
         "date": "August 19, 1975",
-        "rank": 9
+        "rank": 9,
+        "img": "https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_.jpg"
     }
 ]

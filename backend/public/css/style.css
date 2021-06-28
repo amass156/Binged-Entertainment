@@ -4,6 +4,12 @@ h1 {
     justify-content: center;
 }
 
+body {
+    background-color:darkkhaki;
+    font-family: Viaoda Libre;
+
+}
+
 #new-movie {
     display: flex;
     justify-content: flex-end;
@@ -57,3 +63,21 @@ h1 {
        bottom:auto;
    }
 
+.rank-index {
+    padding-top: 8vh;
+}
+
+.date-index {
+    padding-top: 7vh;
+}
+
+.title-movieNum {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.more-details {
+display: flex;
+justify-content: flex-end;
+}
