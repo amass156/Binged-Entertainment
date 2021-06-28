@@ -5,19 +5,24 @@ h1 {
 }
 
 body {
-    background-color:darkkhaki;
+    /* background-image: linear-gradient(black,rgb(51, 61, 70), #0c4488, #89959D); */
     font-family: Viaoda Libre;
 
 }
 
 #new-movie {
     display: flex;
-    justify-content: flex-end;
-    color: red;
+    justify-content: center;
+    padding-top: 2rem;
+    font-size: 25px;
+    /* background-color: red; */
 }
 
 #all-movies {
-    border: solid ;
+    /* border-bottom:solid white 2px; */
+    /* border-right: solid white; */
+    border-top: white solid;
+    /* border-left: white solid; */
 }
 
 /* edit route */
@@ -73,11 +78,48 @@ body {
 
 .title-movieNum {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-between;
+    padding-right: 6.5vw;
 }
 
 .more-details {
 display: flex;
-justify-content: flex-end;
+/* justify-content: flex-end; */
+}
+.container-md {
+    padding: 0px 90px 90px 90px;
+}
+
+.all-movie {
+    background-color:darkorchid transparent;
+    /* padding: 50px; */
+}
+
+.each-movie {
+    /* background-color:sienna; */
+    padding: 20px 20px 0px 20px;
+}
+
+.movie-spacing {
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+.img-index {
+    padding: 1rem 1rem
+}
+
+.add-new-movie {
+    margin: 2vh 5vh;
+    padding: 1vh;
+    border-radius: 100px;
+    border: 5px solid;
+    color: #15f4ee;
+    font-family: poppins;
+    background-color: transparent;
+
+}
+
+.filter-movieCount {
+    display: flex;
+    justify-content: space-between;
 }
