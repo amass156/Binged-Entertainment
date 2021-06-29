@@ -20,6 +20,7 @@
   "homepage": "https://github.com/amass156/Binged-Entertainment#readme",
   "dependencies": {
     "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "hbs": "^4.1.2",

@@ -1,5 +1,5 @@
-<div>
-    <h1>{{user.name}}'s Movie Collection</h1>
+<div class="title-index" >
+    <h1>Movie Collection</h1>
 </div>
 
 
@@ -25,7 +25,6 @@
                 </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="/movies/a_z">A-Z</a>
-                <a class="dropdown-item" href="#">Genre</a>
                 <a class="dropdown-item" href="/movies/rank">Ranking</a>
                 <a class="dropdown-item" href="#">Z-A</a>
                 <div class="dropdown-divider"></div>
@@ -44,7 +43,7 @@
                 <div class="row" >
                     
                     <div class="title-movieNum">
-                        <div> {{this.name}} </div>
+                        <div class="movie-name"> {{this.name}} </div>
 
                         <div> #{{movieIndex index}}</div>
                     </div>
@@ -67,7 +66,8 @@
                         </div> --}}
  
                         <div class="more-details">
-                            <a href="/movies/{{this.id}}">More details</a>
+                            <a href="/movies/{{this.id}}" >
+                            <button class="more-details-button">More Details</button> </a>
                         </div>
 
                                 {{!-- movie number by index --}}

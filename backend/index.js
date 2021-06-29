@@ -3,11 +3,25 @@ const express = require("express")
 const app = express()
 const methodOverride = require("method-override")
 const session = require("express-session")
+const MongoDBStore = require("connect-mongodb-session")(session)
 const flash = require("connect-flash")
 const hbs = require("hbs")
 const https = require('https')
 const fetch = require("node-fetch")
+// app.use(express.cookieParser('your secret here'));rs
 require("./db/connection")
+
+
+// Mongodb session
+store = new MongoDBStore({
+    uri: "mongodb://localhost/binged-entertainment2",
+    collection: "mySessions"
+})
+// Catch errors
+store.on('error', function(error) {
+    console.log(error);
+  });
+  
 
 
 // const cors = require("cors")
@@ -24,16 +38,34 @@ app.use(methodOverride("_delete"))
 
 
 
+
+
 // require models
 const Movie = require("./models/movie")
 // routes
 
+const {
+    NODE_ENV = "development",
+    SESS_NAME = "sid",
+    SESS_SECRET = "session secret"
+} = process.env
+
+const IN_PROD = NODE_ENV === "production"
+
 
 app.use(session({
-    secret: "session secret",
+    name: SESS_NAME,
+    secret: SESS_SECRET,
+    cookie: {
+        secure: IN_PROD,
+        sameSite: true
+    },
+    store: store,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
 }))
+
+
 app.use((req, res, next)=> {
     res.locals.userId = req.session.userId
     next()

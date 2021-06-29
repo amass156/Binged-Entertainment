@@ -1,14 +1,27 @@
 h1 {
-    color: red;
+    /* color: red; */
     display: flex;
     justify-content: center;
 }
 
+.title-index {
+    color: #AAA4D1;
+}
+
+h2 {
+    color: #AAA4D1;
+}
+
+
 body {
     /* background-image: linear-gradient(black,rgb(51, 61, 70), #0c4488, #89959D); */
+    background: contain;
     font-family: Viaoda Libre;
+    height: 100vh;
 
 }
+
+
 
 #new-movie {
     display: flex;
@@ -23,8 +36,13 @@ body {
     /* border-right: solid white; */
     border-top: white solid;
     /* border-left: white solid; */
+    color: #90CEF1;
 }
 
+.movie-name {
+    text-decoration: underline;
+
+}
 /* edit route */
 .edit-form {
     display: flex;
@@ -33,6 +51,11 @@ body {
 #edit-title {
     display: flex;
     justify-content: center;
+    color: red;
+}
+
+.show-title {
+    color: #AAA4D1;
 }
 
 /* register route */
@@ -98,6 +121,17 @@ body {
 .more-details {
 display: flex;
 /* justify-content: flex-end; */
+color: #89959D;
+}
+
+.more-details-button {
+    /* margin: 2vh 5vh; */
+    /* padding: 1vh; */
+    border-radius: 100px;
+    border: 2px solid;
+    color: #7097b3;
+    font-family: Noto Serif KR;
+    background-color: transparent;
 }
 .container-md {
     padding: 0px 90px 90px 90px;
@@ -122,35 +156,43 @@ display: flex;
 }
 
 .add-new-movie {
-    margin: 2vh 5vh;
-    padding: 1vh;
+    /* margin: 2vh 5vh; */
+    /* padding: 1vh; */
     border-radius: 100px;
     border: 5px solid;
-    color: #15f4ee;
+    color: #59C2C9;
     font-family: poppins;
     background-color: transparent;
+}
 
+.navbar {
+    color: red
 }
 
 .filter-movieCount {
     display: flex;
     justify-content: space-between;
+    color: #89959D;
+
 }
 
 .show-movie {
     /* display: flex; */
     /* justify-content: center; */
+    /* background-color: red; */
 }
 
 .movie-info {
     /* display: flex; */
     /* justify-content: center; */
+    /* background-color: red; */
 }
 
 .image-show, .date-show {
     display: flex;
     justify-content: center; 
     padding-top: 15px;
+    /* background-color: red; */
 }
 
 .date-comment, .date-rank {
@@ -167,5 +209,35 @@ display: flex;
 
 .date-show {
     display: flex;
-    justify-content: center; */
+    justify-content: center; 
+}*/
+
+a {
+    color: #89959D;
+}
+
+.home-edit {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    padding-top: 2vw;
+}
+
+.show-info {
+    color: #FDF9ED;
+    font-size: 20px;
+}
+.genre-show {
+    display: flex;
+    justify-content: center;
+    padding-top: 2vw;
+}
+
+.rank-genre {
+    display: flex;
+    justify-content: space-evenly;
 }

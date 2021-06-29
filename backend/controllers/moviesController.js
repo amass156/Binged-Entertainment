@@ -4,6 +4,8 @@ const Movie = require("../models/movie")
 const User = require("../models/user")
 const hbs = require("handlebars")
 const { findOne } = require("../models/movie")
+const session = require("express-session")
+// const MongoDBStore = require("connect-mongodb-session")(session)
 
 // user login route
 router.get("/login", (req, res, next) => {
@@ -14,17 +16,23 @@ router.get("/login", (req, res, next) => {
 })
 
 router.post("/login", (req, res, next) => { 
+    const {userId} = req.session
+    console.log(req.session.name)
     username = req.body.username
     password = req.body.password 
     // console.log(username)
     // console.log(password)
     User.findOne({username: username})
     .then((user, error)=> {
+        req.session.userId = user._id
+        req.session.nameId = user.name
+        // console.log(req.session.name)
+    // console.log(req.session.userId)
         if(user && user.password == password) {
             Movie.find({login: user._id})
             .then((movie, err) => {
                 // specify which users collection of movie will render
-                res.redirect("/movies")
+                res.render("index", {movie})
                 // console.log(movie)
             })
         } else {
@@ -36,19 +44,27 @@ router.post("/login", (req, res, next) => {
 
 // user route that posts
 router.get("/user/:id", (req, res) => {
-    // let user = User.findById(req.params.id)
-    // console.log(user)
-    Movie.find({login: req.params.id})
-    .then((movies) => {
-        res.json(movies)
+    let user = User.findById(req.session.userId, function(err, w) {
+        console.log(w)
+    })
+    console.log(req.session.userId)
+    Movie.find({login: req.session.userId}) 
+        // console.log(user)
+        // console.log(movies)
+        // res.render("index", {movies, user})
+    // })
+    .then((movie) => {
+        console.log(movie)
+        res.render("index", {movie, user})
     })
     // res.json({movies: movies})
 })
 
-
 // registration page
 router.get("/register", (req, res) =>{
         // messages gets passed in as an object
+    console.log(req.session.userId)
+    // console.log(userId)
     res.render("register")
 })
 
@@ -78,8 +94,11 @@ router.post("/register", (req, res) =>{
 })
 // home route for /movies
 router.get("/", (req, res) => {
+    // const {userId} = req.session
     let user = User.findById(req.session.userId)
-    console.log(req.session)
+    console.log(req.session.userId)
+
+    // console.log(req.session)
     Movie.find({})
     // .populate("login")
     // do a .then(()=> {
@@ -87,11 +106,6 @@ router.get("/", (req, res) => {
     // })
     .then((movie) => {
         // console.log(movie)
-    
-        // console.log(movie.img)
-        // console.log("dre")rs
-        // console.log(movie)
-        // console.log(User.findById({}))
 
         res.render("index", {movie, user})
         // console.log(movie[0].genre[0])
@@ -105,9 +119,6 @@ router.get("/rank", (req, res) => {
     .then(movie => {
         movie.sort((b, a) => a.rank - b.rank)
         movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
-        // console.log(movie.img)
-        // console.log("dre")
-        // console.log(movie)
         // console.log(User.findById({}))
 
         res.render("index", {movie})
@@ -121,9 +132,6 @@ router.get("/a_z", (req, res) => {
     .then(movie => {
         movie.sort((a, b) => b.name - a.name)
         movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
-        // console.log(movie.img)
-        // console.log("dre")
-        // console.log(movie)
         // console.log(User.findById({}))
 
         res.render("index", {movie})
@@ -147,7 +155,7 @@ router.get("/search/:id", (req, res) => {
     Movie.findById(id)
     .populate("login")
     .then(movie => {
-        res.render("new", movie)
+        res.render("index", {movie})
     })
 })
 
@@ -172,8 +180,6 @@ router.get("/search/:id", (req, res) => {
 //     })
 // })
 
-
-
 // create route for /movies
 // router.get("/search/new", (req, res) => {
 //     routeID = req.params.id
@@ -184,11 +190,12 @@ router.get("/search/:id", (req, res) => {
 // })
 
 // create a new movie
-router.post("/", (req, res) => {
+router.post("/user/:id", (req, res) => {
         // break up each req.body(put genre in an array)
         // console.log(req.session.currentuser.id)
-        let user = User.findById(req.session.userId)
-        console.log(req.session.userId)
+        let user = req.session.userId
+        // console.log(User.findById(user))
+        // console.log(req.session)
        let movieName = req.body.name
         let genre = req.body.genre
         let date = req.body.date
@@ -200,23 +207,28 @@ router.post("/", (req, res) => {
                 date: date,
                 rank: rank,
                 comment: comment,
-                // login: user
+                login: user
             })
-            .then((movie)=>{
-                console.log(movie)
+            .then((us)=>{
+                // console.log(movie)
+                movie = Movie.find({login: user}, function(err, docs) {})
+                console.log(us)
+                // console.log(movie)
+                res.redirect(`/movies/user/${user}`)
             })
         // } else {
             // res.render("new", {message: true})
         // }
         // .populate("login")
-        .then(result => {
-            // console.log(result)
-            res.redirect("/movies")
-        })
+        // .then(movie => {
+        //     // console.log(result)
+        //     console.log(movie)
+        // })
         .catch(err => {
             console.log(err);
             res.send("no luck on create")
         })
+        
     })
 
 

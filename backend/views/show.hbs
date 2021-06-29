@@ -1,29 +1,34 @@
-<h1>{{name}}</h1>
+<h1 class="show-title">{{name}}</h1>
 
 <div class="container">
-    <span>
-        <a href="/movies">See your full movie list</a>
-        <a href="/movies/{{this.id}}/edit" style="display: flex; justify-content:flex-end">Edit your Movie</a>
-    </span>
+
+    <div class="home-edit">
+            <div>
+                <a href="/movies"> <button class="btn btn-secondary">See your full movie list</button> </a>
+            </div>
+            <div>
+                <a href="/movies/{{this.id}}/edit"> <button class="btn btn-secondary">Edit your Movie</button> </a>
+            </div>
+    </div>
+
 
     {{movie}}
     <div class="movie-info">
-        <div>
-            <center> 
-            </center>
-        </div>
-        <div>Genre: <b>{{this.genre}}</b></div> 
         {{!-- {{img}} --}}
-        <div class="date-show">Date Watched: <b>{{this.date}}</b></div> 
-        <div class="image-show"> 
+        <div class="date-show show-info"><b> Date Watched: {{this.date}}</b></div> 
+        <div class="image-show show-info"> 
             <img src="{{this.img}}" width="300px" alt="Image">
         </div>
-        <div class="date-rank">Rank: <b>{{this.rank}}</b></div> 
-        <div class="date-comment">Comment: <b> {{this.comment}} </b> </div> 
+
+        <div class="date-comment show-info">Comment: <b> {{this.comment}} </b> </div> 
+        <div class="rank-genre">
+            <div class="date-rank show-info">Rank: <b>{{this.rank}}/10</b></div> 
+            <div class=" genre-show show-info">Genre: <b>{{this.genre}}</b></div> 
+        </div>
     </div>
-     <div >
+     <div class="delete">
          <form action="/movies/{{this.id}}?_delete=DELETE" method="POST">
-         <input type="submit" value="Delete {{this.name}}">
+         <input type="submit" class="btn btn-danger" value="Delete {{this.name}}">
          </form>
     </div>
 </div>
