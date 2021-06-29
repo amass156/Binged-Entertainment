@@ -7,6 +7,9 @@ const flash = require("connect-flash")
 const hbs = require("hbs")
 const https = require('https')
 const fetch = require("node-fetch")
+require("./db/connection")
+
+
 // const cors = require("cors")
 
 // initialize and configure express
@@ -18,17 +21,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"))
 app.use(methodOverride("_method"))
 app.use(methodOverride("_delete"))
-app.use(session({
-    secret: "session secret",
-    resave: false,
-    saveUninitialized: false,
-}))
-app.use(flash())
+
 
 
 // require models
 const Movie = require("./models/movie")
 // routes
+
+
+app.use(session({
+    secret: "session secret",
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use((req, res, next)=> {
+    res.locals.userId = req.session.userId
+    next()
+})
+app.use(flash())
+
 const moviesController = require("./controllers/moviesController")
 const { get } = require("mongoose")
 app.use("/movies", moviesController)
@@ -37,7 +48,6 @@ app.get("/", (req, res)=> {
     res.redirect("/movies/login")
 })
 
-// do a res.redirect to /movies/register
 
 
 // app.get("/", (req, res) => {

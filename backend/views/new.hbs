@@ -1,5 +1,12 @@
 <div class="container">
     
+     {{#if message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Movie name and Genre must be entered</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+    {{/if}}
+
     <h1>Add a new Movie</h1>
 
     <form action="/movies" method="POST">
@@ -35,6 +42,10 @@
             <input type="text" name="img" placeholder="Insert img URL" class="form-control">
         </div>
 
+       <div class="form-group">
+           <input type="text" name="user"  value="a">
+       </div>
+
             <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </span>
@@ -43,6 +54,6 @@
     </form>
 
 </div>
-<footer id="footer">
+<footer id="footer-new">
     {{> footer}}
 </footer>

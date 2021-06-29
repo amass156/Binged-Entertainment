@@ -24,7 +24,7 @@ router.post("/login", (req, res, next) => {
             Movie.find({login: user._id})
             .then((movie, err) => {
                 // specify which users collection of movie will render
-                res.render("index", {movie, user})
+                res.redirect("/movies")
                 // console.log(movie)
             })
         } else {
@@ -33,6 +33,18 @@ router.post("/login", (req, res, next) => {
         }
     })
 })
+
+// user route that posts
+router.get("/user/:id", (req, res) => {
+    // let user = User.findById(req.params.id)
+    // console.log(user)
+    Movie.find({login: req.params.id})
+    .then((movies) => {
+        res.json(movies)
+    })
+    // res.json({movies: movies})
+})
+
 
 // registration page
 router.get("/register", (req, res) =>{
@@ -66,17 +78,18 @@ router.post("/register", (req, res) =>{
 })
 // home route for /movies
 router.get("/", (req, res) => {
+    let user = User.findById(req.session.userId)
+    console.log(req.session)
     Movie.find({})
-    .populate("login")
+    // .populate("login")
     // do a .then(()=> {
         // req.session.userid
     // })
-    .then((movie, user) => {
+    .then((movie) => {
         // console.log(movie)
-        movie[0].img = "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
     
         // console.log(movie.img)
-        // console.log("dre")
+        // console.log("dre")rs
         // console.log(movie)
         // console.log(User.findById({}))
 
@@ -173,27 +186,39 @@ router.get("/search/:id", (req, res) => {
 // create a new movie
 router.post("/", (req, res) => {
         // break up each req.body(put genre in an array)
+        // console.log(req.session.currentuser.id)
+        let user = User.findById(req.session.userId)
+        console.log(req.session.userId)
        let movieName = req.body.name
         let genre = req.body.genre
         let date = req.body.date
         let rank = req.body.rank
         let comment = req.body.comment
-        // login = req.body.login
-        // User.findById(users._id)        
-        // .then(()=> {
-            Movie.create(req.body)
-        // })
+            Movie.create({
+                name: movieName,
+                genre: genre,
+                date: date,
+                rank: rank,
+                comment: comment,
+                // login: user
+            })
+            .then((movie)=>{
+                console.log(movie)
+            })
+        // } else {
+            // res.render("new", {message: true})
+        // }
         // .populate("login")
         .then(result => {
             // console.log(result)
-
             res.redirect("/movies")
         })
         .catch(err => {
             console.log(err);
             res.send("no luck on create")
         })
-})
+    })
+
 
 // show route
 router.get("/:id", (req, res) => {
@@ -229,6 +254,16 @@ router.put("/:id", (req, res) => {
             res.render("show", movie)
         })
 })
+
+// Delete by id
+router.delete("/:id", (req, res) =>{
+    let id = req.params.id
+    Movie.findOneAndDelete({_id: id})
+    .then(() => {
+        res.redirect("/movies")
+    })
+})
+
 
 
 

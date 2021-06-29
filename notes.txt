@@ -197,3 +197,4 @@ create a search page that searches for the movie..
 []6/23 - create an event listener to 
 []6/25 - footer does not display correctly if error is made in the search page
 [] 6/25 - footer does not display correctly on the add new movie page
+[]6/28 - stretch goal - say the way in which you watched the movie...Netflix, Showtime, Disney+

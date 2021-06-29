@@ -1,7 +1,7 @@
 const mongoose = require("../db/connection")
 
 const MovieSchema = new mongoose.Schema({
-    name: {type: String, required: true},
+    name: {type: String},
     genre: [],
     comment: String,
     date: String,

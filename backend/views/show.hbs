@@ -1,20 +1,35 @@
 <h1>{{name}}</h1>
-<span>
-    <a href="/movies">See your full movie list</a>
-    <a href="/movies/{{this.id}}/edit" style="display: flex; justify-content:flex-end">Edit your Movie</a>
-</span>
 
-{{movie}}
-<div>
-    <center> 
-        <span>Name: <b>{{this.name}}</b></span> 
-        {{!-- <img src="{{this.img}}" alt="poke image" style="text-align: center;">  --}}
-     </center>
+<div class="container">
+    <span>
+        <a href="/movies">See your full movie list</a>
+        <a href="/movies/{{this.id}}/edit" style="display: flex; justify-content:flex-end">Edit your Movie</a>
+    </span>
+
+    {{movie}}
+    <div class="movie-info">
+        <div>
+            <center> 
+            </center>
+        </div>
+        <div>Genre: <b>{{this.genre}}</b></div> 
+        {{!-- {{img}} --}}
+        <div class="date-show">Date Watched: <b>{{this.date}}</b></div> 
+        <div class="image-show"> 
+            <img src="{{this.img}}" width="300px" alt="Image">
+        </div>
+        <div class="date-rank">Rank: <b>{{this.rank}}</b></div> 
+        <div class="date-comment">Comment: <b> {{this.comment}} </b> </div> 
+    </div>
+     <div >
+         <form action="/movies/{{this.id}}?_delete=DELETE" method="POST">
+         <input type="submit" value="Delete {{this.name}}">
+         </form>
+    </div>
 </div>
- <div>Genre: <b>{{this.genre}}</b></div> 
-{{!-- {{img}} --}}
- <div>Date: <b>{{this.date}}</b></div> 
- <div>Rank: <b>{{this.rank}}</b></div> 
- <div>Comment: <b>{{this.comment}}</b></div> 
- <img src="{{this.img}}" width="300px" alt="whatever image">
+
+<footer id="footer-show">
+    {{> footer}}
+</footer>
+
 

@@ -53,13 +53,26 @@ body {
     /* padding-top: 5rem; */
     /* position:static; */
     /* bottom: 0; */
+    bottom:0;
     width: 100%;
     /* height: 2.5rem;    */
 
     /* position:fixed; */
-    bottom:0;
     /* left:0; */
    }
+
+#footer-show {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer-new {
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 10vh;
+}
 
    #index-footer {
        position: relative;
@@ -122,4 +135,37 @@ display: flex;
 .filter-movieCount {
     display: flex;
     justify-content: space-between;
+}
+
+.show-movie {
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.movie-info {
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.image-show, .date-show {
+    display: flex;
+    justify-content: center; 
+    padding-top: 15px;
+}
+
+.date-comment, .date-rank {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+/* .date-rank {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.date-show {
+    display: flex;
+    justify-content: center; */
 }
