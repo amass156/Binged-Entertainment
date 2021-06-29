@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container new-words">
     
      {{#if message}}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -8,8 +8,7 @@
     {{/if}}
 
     <h1>Add a new Movie</h1>
-{{userId}}
-{{req.session.userId}}
+
     <form action="/movies/user/{{userId}}" method="POST">
         <div class="form-group">
             <label for="name" class="form-label">Name:</label>
@@ -43,10 +42,7 @@
             <input type="text" name="img" placeholder="Insert img URL" class="form-control">
         </div>
 
-       <div class="form-group">
-           <input type="text" name="user"  value="{{userId}}">
-       </div>
-
+       
             <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </span>

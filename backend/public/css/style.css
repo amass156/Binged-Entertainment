@@ -14,7 +14,7 @@ h2 {
 
 
 body {
-    /* background-image: linear-gradient(black,rgb(51, 61, 70), #0c4488, #89959D); */
+    background-image: linear-gradient(black,rgb(51, 61, 70), #0c4488, #89959D);
     background: contain;
     font-family: Viaoda Libre;
     height: 100vh;
@@ -241,3 +241,28 @@ a {
     display: flex;
     justify-content: space-evenly;
 }
+
+.register-words, .login-words, .new-words, .edit-words {
+    color: #FDF9ED;
+}
+
+.login-ref {
+    color: #FDF9ED;
+}
+.register-head, .login-header, #edit-title{
+    color: #AAA4D1;
+}
+
+.submit-register, .submit-login {
+    display: flex;
+    justify-content: flex-end ;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+.login-register, .register-login {
+    display: flex;
+    justify-content: center;
+}
+

@@ -1,5 +1,5 @@
-<div class="container">
-<h1>Login</h1>
+<div class="container login-words">
+<h1 class="login-header">Login</h1>
 
 {{!-- {{> messages}} --}}
 
@@ -19,11 +19,16 @@
             <label for="password" class="form-label"> Password:</label>
             <input type="password" name="password" class="form-control">
         </div>
+        <div class="submit-login">
+
         <button type="submit" class="btn btn-primary">Login</button>
+        </div>
     </form>
 
+<div class="login-register">
+    <p>Or <a href="/movies/register">Register</a> an account</p>
+</div>
 
-<p>Or <a href="/movies/register">Register</a> an account</p>
 </div>
 
 <footer id="footer">
