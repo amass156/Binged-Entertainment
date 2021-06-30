@@ -1,6 +1,7 @@
 # Binged-Entertainment
 ### About
 
+Visit my App: https://binged-entertainment.herokuapp.com/
 ---
 Binged Entertainment was created using HTML, CSS, Javascript, Handlebars, Express, Mongodb, Mongoose, BootStrap and Express-Session.
 
