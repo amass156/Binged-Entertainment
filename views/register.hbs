@@ -1,6 +1,6 @@
-<h1>Create a username </h1>
+<h1 class="register-head">Create a username </h1>
 
-<div class="container">
+<div class="container register-words">
   {{#if message}}
    <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Username already exists. Please enter a new username</strong> 
@@ -21,7 +21,10 @@
             <label for="password" class="form-label">Password:</label>
             <input type="text" name="password" class="form-control" title="" required>
     </div>
+
+    <div class="submit-register">
           <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
           {{!-- add patterns later --}}
 
     {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
@@ -30,9 +33,9 @@
 </div>
 
 
-<center>
-  <p>Already have an account? <a href="/movies/login">Login</a> </p>
-</center>
+<div class="register-login">
+  <p class="login-ref">Already have an account? <a href="/movies/login">Login</a> </p>
+</div>
 
 <footer id="footer">
         {{> footer}}

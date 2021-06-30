@@ -1,16 +1,23 @@
-<div class="container">
+<div class="container new-words">
     
+     {{#if message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Movie name and Genre must be entered</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+    {{/if}}
+
     <h1>Add a new Movie</h1>
 
-    <form action="/movies" method="POST">
+    <form action="/movies/user/{{userId}}" method="POST">
         <div class="form-group">
             <label for="name" class="form-label">Name:</label>
-            <input type="text" name="name" value="{{movie.name}}" class="form-control" readonly />
+            <input type="text" name="name" value="{{movie.name}}" class="form-control"  />
     </div>
         
         <div class="form-group">
             <label for="genre" class="form-label">Genre:</label>
-            <input type="text"  name="genre" value="{{movie.genre}}" class="form-control" readonly>
+            <input type="text"  name="genre" value="{{movie.genre}}" class="form-control" >
         </div>
 
         <div class="form-group">
@@ -20,7 +27,7 @@
 
 
         <div class="form-group">
-            <label for="rank" class="form-label"> Rank:</label>
+            <label for="rank" class="form-label"> Rating:</label>
             <input type="number" name="rank" max="10" placeholder="Must be between 1-10" class="form-control">
 
         </div>
@@ -30,6 +37,12 @@
             <input type="text" name="comment" placeholder="Best Movie Ever!" class="form-control">
         </div>
 
+        <div class="form-group">
+            <label for="img" class="form-label"> Image</label>
+            <input type="text" name="img" placeholder="Insert img URL" class="form-control">
+        </div>
+
+       
             <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </span>
@@ -38,6 +51,6 @@
     </form>
 
 </div>
-<footer id="footer">
+<footer id="footer-new">
     {{> footer}}
 </footer>

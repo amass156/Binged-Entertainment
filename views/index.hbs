@@ -1,51 +1,82 @@
-<div>
-    <h1>{{user.name}}'s Movie Collection</h1>
+<div class="title-index" >
+    <h1>Movie Collection</h1>
 </div>
 
-{{!-- Add a new movie --}}
-<div id="new-movie">
-    <button>
-         <a href={{user._id}}> Add New Movie</a>
-    </button>
-</div>
 
-<div style="display: flex; justify-content:flex-end">
-    <div class="btn-group" >
-        <button type="button" class="btn btn-secondary">Filter by:</button>
-        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only"></span>
-        </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="/movies/a_z">A-Z</a>
-        <a class="dropdown-item" href="#">Genre</a>
-        <a class="dropdown-item" href="/movies/rank">Ranking</a>
-        <a class="dropdown-item" href="#">Z-A</a>
-        <div class="dropdown-divider"></div>
+
+    <div id="new-movie" >
+         <a href="/movies/search/"> 
+            <button type="submit" class="add-new-movie">Add New Movie </button>
+         </a>
     </div>
-    </div>
-</div>
-{{!-- Total number of movies in a collection --}}
-<div class="container">
-<div>
-    <span> {{movie.length}} Movies</span>
-</div>
 
-    {{#each movie as |movie index|}}
-        <div id="all-movies">
-        <img src="{{this.img}}" width="95px" alt="whatever image">
-            Movie Name: {{this.name}}
-        <p>Rank: {{rank}}</p> 
-            Genre: {{genre.[0]}}
-            
+<div class="container-md">
+    <div class="filter-movieCount">
+    {{!-- Total number of movies in a collection --}}
             <div>
-                <a href="/movies/{{this.id}}">More details</a>
+                <span> Your list of {{movie.length}} Movies</span>
             </div>
 
-            {{!-- movie number by index --}}
-            <div>Movie #{{movieIndex index}}</div>
-    
+        <div style="display: flex; justify-content:flex-end">
+            <div class="btn-group" >
+                <button type="button" class="btn btn-secondary">Filter by:</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/movies/a_z">A-Z</a>
+                <a class="dropdown-item" href="/movies/rank">Ranking</a>
+                <a class="dropdown-item" href="#">Z-A</a>
+                <div class="dropdown-divider"></div>
+            </div>
+            </div>
         </div>
-    {{/each}}
+     </div>
+
+     
+
+    <div class="row all-movie"> 
+            {{#each movie as |movie index|}}
+        <div id="all-movies" class="col-md-4 movie-spacing">
+            <div class="container each-movie" >
+
+                <div class="row" >
+                    
+                    <div class="title-movieNum">
+                        <div class="movie-name"> {{this.name}} </div>
+
+                        <div> #{{movieIndex index}}</div>
+                    </div>
+
+
+                    <div class="col-sm img-index"> 
+                        <img src="{{this.img}}" width="95px" alt="image">
+                    </div>
+
+                    <div  class="col-sm rank-index">
+                    
+                        Rating: {{rank}}
+                    </div>
+
+                        {{!-- <div class="col-sm date-index">
+                            Date Watched: 
+                            <div>
+                                {{date}}
+                            </div>
+                        </div> --}}
+ 
+                        <div class="more-details">
+                            <a href="/movies/{{this.id}}" >
+                            <button class="more-details-button">More Details</button> </a>
+                        </div>
+
+                                {{!-- movie number by index --}}
+                            
+                </div>
+            </div>
+        </div>
+                {{/each}}
+    </div>
 </div>
 
 {{!-- List of all movies --}}
