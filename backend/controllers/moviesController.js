@@ -13,10 +13,9 @@ router.get("/login", (req, res, next) => {
 
 router.post("/login", (req, res, next) => { 
     const {userId} = req.session
-    console.log(req.session.name)
+    // console.log(req.session.name)
     username = req.body.username
     password = req.body.password 
-    /
     User.findOne({username: username})
     .then((user, error)=> {
         req.session.userId = user._id
@@ -180,8 +179,6 @@ router.get("/:id/edit", (req, res) => {
 }) 
 
 router.put("/:id", (req, res) => {
-    // push new genre into the array, create a new array for the genre
-    // break up req.body... put genre into an array
     let id = req.params.id
     console.log(req.body)
     Movie.findOneAndUpdate(
