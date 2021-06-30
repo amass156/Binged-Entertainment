@@ -1,8 +1,10 @@
 # Binged-Entertainment
 ### About
-
-Visit my App: https://binged-entertainment.herokuapp.com/
 ---
+
+***Visit my App: https://binged-entertainment.herokuapp.com/***
+
+
 Binged Entertainment was created using HTML, CSS, Javascript, Handlebars, Express, Mongodb, Mongoose, BootStrap and Express-Session.
 
 This app was designed in order to keep track of the movies you watched. It allows users to input a date watched as well as a personal rating that in order to always remember exactly how you felt right after you watched a movie.
