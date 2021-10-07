@@ -34,12 +34,12 @@ router.post("/login", (req, res, next) => {
 // user route that posts
 router.get("/user/:id", (req, res) => {
     let user = User.findById(req.session.userId, function(err, w) {
-        console.log(w)
+        console.log(w.name)
     })
     console.log(req.session.userId)
     Movie.find({login: req.session.userId}) 
        
-    .then((movie) => {
+    .then((movie, user) => {
         res.render("index", {movie, user})
     })
 })

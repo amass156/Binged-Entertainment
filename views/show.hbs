@@ -1,34 +1,41 @@
 <h1 class="show-title">{{name}}</h1>
-
 <div class="container">
-
     <div class="home-edit">
-            <div>
-                <a href="/movies"> <button class="btn btn-secondary">See your full movie list</button> </a>
-            </div>
-            <div>
-                <a href="/movies/{{this.id}}/edit"> <button class="btn btn-secondary">Edit your Movie</button> </a>
-            </div>
+        <div>
+            <a href="/movies"> 
+                <button class="btn btn-secondary">
+                    See your full movie list
+                </button> 
+            </a>
+        </div>
+        <div>
+            <a href="/movies/{{this.id}}/edit"> 
+                <button class="btn btn-secondary">
+                    Edit your Movie
+                </button> 
+            </a>
+        </div>
     </div>
-
 
     {{movie}}
     <div class="movie-info">
-        {{!-- {{img}} --}}
-        <div class="date-show show-info"><b> Date Watched: {{this.date}}</b></div> 
+        <div class="date-show show-info">
+            <b> Date Watched: {{this.date}}</b>
+        </div> 
         <div class="image-show show-info"> 
             <img src="{{this.img}}" width="300px" alt="Image">
         </div>
-
-        <div class="date-comment show-info">Comment: <b> {{this.comment}} </b> </div> 
+        <div class="date-comment show-info">
+            Comment: <b> {{this.comment}} </b> 
+        </div> 
         <div class="rank-genre">
             <div class="date-rank show-info">Rank: <b>{{this.rank}}/10</b></div> 
             <div class=" genre-show show-info">Genre: <b>{{this.genre}}</b></div> 
         </div>
     </div>
-     <div class="delete">
+    <div class="delete">
          <form action="/movies/{{this.id}}?_delete=DELETE" method="POST">
-         <input type="submit" class="btn btn-danger" value="Delete {{this.name}}">
+            <input type="submit" class="btn btn-danger" value="Delete {{this.name}}">
          </form>
     </div>
 </div>

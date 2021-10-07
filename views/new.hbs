@@ -13,7 +13,7 @@
         <div class="form-group">
             <label for="name" class="form-label">Name:</label>
             <input type="text" name="name" value="{{movie.name}}" class="form-control"  />
-    </div>
+        </div>
         
         <div class="form-group">
             <label for="genre" class="form-label">Genre:</label>
@@ -25,11 +25,9 @@
             <input type="date" name="date" class="form-control">
         </div>
 
-
         <div class="form-group">
             <label for="rank" class="form-label"> Rating:</label>
             <input type="number" name="rank" max="10" placeholder="Must be between 1-10" class="form-control">
-
         </div>
 
         <div class="form-group">
@@ -42,15 +40,12 @@
             <input type="text" name="img" placeholder="Insert img URL" class="form-control">
         </div>
 
-       
-            <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
-                <button type="submit" class="btn btn-secondary">Submit</button>
-            </span>
-
-    {{!-- <a href="/" class="btn btn-secondary">Cancel</a> --}}
+        <span style="display: flex; justify-content:flex-end; padding: 15px 10px"  >
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </span>
     </form>
-
 </div>
+
 <footer id="footer-new">
     {{> footer}}
 </footer>

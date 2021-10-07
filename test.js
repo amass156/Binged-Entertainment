@@ -27,13 +27,10 @@ let blackPanther = []
 
 const req = https.request(options, res => {
   console.log(`statusCode: ${res.statusCode}`)
-  // console.log(res)
   res.on('data', d => {
     // process.stdout.write(d)
     console.log(d);
-    // console.log(data);
       // return blackPanther.push(d)
-    //   console.log(JSON.parse(d))
     })
     // .then(d => {
     //     blackPanther.push(data)
@@ -46,10 +43,3 @@ const req = https.request(options, res => {
   })
   
   req.end()
-
-// install fetch 
-// const fetch = fetch(options)
-
-
-//   .then(res => console.log(res))
-//   console.log(blackPanther)
