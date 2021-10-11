@@ -11,24 +11,30 @@ router.get("/login", (req, res, next) => {
     res.render("login", {})
 })
 
-router.post("/login", (req, res, next) => { 
+router.post("/login", async (req, res, next) => { 
     const {userId} = req.session
     // console.log(req.session.name)
     username = req.body.username
     password = req.body.password 
-    User.findOne({username: username})
-    .then((user, error)=> {
+    const user = await User.findOne({username: username})
+        console.log(user)
+    if(!user && user.password !== password) {
+        return res.render("login", {message: true})
+    }
+    req.session.regenerate(function(err) {
+        console.log(user._id)
+        // will have a new session here
         req.session.userId = user._id
         req.session.nameId = user.name
-        if(user && user.password == password) {
-            Movie.find({login: user._id})
-            .then((movie, err) => {
-                res.render("index", {movie})
-            })
-        } else {
-            res.render("login", {message: true})
-        }
     })
+    const movie = await Movie.find({login: user._id})
+    // .then((movie, err) => {
+        console.log(movie)
+        return res.render("index", {movie})
+    // })
+    //     } else {
+    //         res.render("login", {message: true})
+    //     }
 })
 
 // user route that posts
@@ -121,10 +127,10 @@ router.get("/search/:id", (req, res) => {
 })
 
 
-
 // create a new movie
-router.post("/user/:id", (req, res) => {
+router.post("/test", (req, res) => {
         let user = req.session.userId
+        console.log(user)
        let movieName = req.body.name
         let genre = req.body.genre
         let date = req.body.date

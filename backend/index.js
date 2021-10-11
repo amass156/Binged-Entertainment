@@ -44,11 +44,11 @@ app.use(methodOverride("_delete"))
 const Movie = require("./models/movie")
 // routes
 
-const {
-    NODE_ENV = "development",
-    SESS_NAME = "sid",
-    SESS_SECRET = "session secret"
-} = process.env
+// const {
+    const NODE_ENV = "development"
+    const SESS_NAME = "sid"
+    const SESS_SECRET = "session secret"
+// } = process.env
 
 const IN_PROD = NODE_ENV === "production"
 
@@ -57,7 +57,7 @@ app.use(session({
     name: SESS_NAME,
     secret: SESS_SECRET,
     cookie: {
-        secure: IN_PROD,
+        secure: false,
         sameSite: true
     },
     store: store,
